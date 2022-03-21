@@ -1,0 +1,25 @@
+name: Halo Releases
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: 'Environment to release to (staging, inhouse, prod, edge (db ONLY)).'
+        required: true
+        default: 'staging'
+        options:
+        - edge
+        - staging
+        - inhouse
+        - prod
+
+jobs:
+  release:
+    runs-on: [ ubuntu-latest ]     
+    steps:
+      - name: test
+        run: |
+          test="test"
+          echo $test
+        
